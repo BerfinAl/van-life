@@ -1,24 +1,24 @@
 import "./style.css";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import "./server";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Vans from "./pages/Vans";
+import VanDetail from "./pages/VanDetail";
+import Layout from "./components/Layout"
 
 function App() {
   return (
-    <div>
-      <nav>
-        <div className="nav-header"> <Link to="/" > #VANLIFE </Link> </div>
-        <div className="nav-links">
-          <Link to="/about">About </Link>
-          <Link to="/vans">Vans </Link>
-        </div>
-      </nav>
+    <div className="app">
       <Routes>
-        <Route index path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route element={<Layout />}>
+          <Route index path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/vans" element={<Vans />} />
+          <Route path="/vans/:id" element={<VanDetail />} />
+        </Route>
       </Routes>
-      <footer>Ⓒ 2022 #VANLIFE</footer>
     </div>
   );
 }
