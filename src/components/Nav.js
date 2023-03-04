@@ -1,14 +1,15 @@
-import { Link } from "react-router-dom";
+ import { NavLink } from "react-router-dom";
 
 export default function Nav() {
   return (
     <nav>
       <div className="nav-header">
-        <Link className="nav-link" to="/"> #VANLIFE </Link>
+        <NavLink to="/"> #VANLIFE </NavLink>
       </div>
       <div className="nav-links">
-        <Link className="nav-link" to="/about">About </Link>
-        <Link className="nav-link" to="/vans">Vans </Link>
+        <NavLink className="nav-link" to="host">Host  </NavLink>
+        <NavLink className="nav-link" to="about">About </NavLink>
+        <NavLink className="nav-link" to="vans">Vans </NavLink>
       </div>
     </nav>
   );

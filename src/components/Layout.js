@@ -1,12 +1,13 @@
 import { Outlet } from "react-router-dom";
-import Nav from "./Nav";
+import Nav from "./Nav"; 
+import Footer from "./Footer";
 
 export default function Layout() {
   return (
-    <>
+    <div className="content-wrap">
       <Nav />
       <Outlet />
-      <footer>Ⓒ 2022 #VANLIFE</footer>
-    </>
+      <Footer />
+    </div>
   );
 }

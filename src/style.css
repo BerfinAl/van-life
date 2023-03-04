@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
 }
+
 :root {
   --black: #161616;
 }
@@ -9,6 +10,11 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Inter", sans-serif;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 nav {
@@ -17,6 +23,7 @@ nav {
   align-items: center;
   padding: 2rem;
   height: 111.62352752685547px;
+  background-color: #fff7ed;
 }
 
 button:hover {
@@ -34,8 +41,8 @@ a:hover {
 }
 
 .nav-link:hover {
-text-decoration: underline;
-} 
+  text-decoration: underline;
+}
 
 .nav-header > a {
   color: #000000;
@@ -46,10 +53,10 @@ text-decoration: underline;
 }
 
 .nav-links {
-  height: 22.92268943786621px;
-  width: 116.60671997070312px;
   display: flex;
   justify-content: space-between;
+  gap: 10px;
+  padding: 5px;
 }
 
 .nav-links > a {
@@ -63,7 +70,6 @@ text-decoration: underline;
 
 footer {
   height: 74.75px;
-  width: 100%;
   background: #252525;
   color: #aaaaaa;
   font-size: 14px;
@@ -73,16 +79,18 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: auto;
 }
 
-.app {
+.content-wrap {
   min-height: 100vh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
   background-color: #fff7ed;
+  flex: 1;
 }
 
 .home.container {
@@ -237,15 +245,18 @@ footer {
   color: #ffead0;
 }
 
-.simple {
+.simple,
+.filter.simple:hover {
   background-color: #e17654;
 }
 
-.rugged {
+.rugged,
+.filter.rugged:hover {
   background-color: #115e59;
 }
 
-.luxury {
+.luxury,
+.filter.luxury:hover {
   background-color: var(--black);
 }
 
@@ -267,7 +278,7 @@ footer {
   text-decoration: underline;
 }
 
-.filter-type {
+.filter {
   background-color: #ffead0;
   color: #4d4d4d;
   width: 85.71px;
@@ -279,6 +290,12 @@ footer {
   padding: 25px 65px;
   font-size: 17px;
   font-weight: 500;
+  border-radius: 5px;
+}
+
+.filter:hover {
+  color: #ffead0;
+  cursor: pointer;
 }
 
 .back-to-vans > a {
@@ -308,20 +325,20 @@ footer {
   margin-top: 30px;
 }
 
-.van-details > .price {
+.price {
   font-family: Inter;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
   line-height: 44px;
   letter-spacing: 0em;
   text-align: left;
   color: var(--black);
-  margin-top: -20px;
+  margin-top: -10px;
 }
 
-.van-details > .price > span {
-  font-weight: 500;
-  font-size: 20px;
+.price > span {
+  font-weight: 400;
+  font-size: 18px;
   line-height: 44px;
   color: var(--black);
 }
@@ -353,10 +370,128 @@ footer {
   border-radius: 5px;
 }
 
+.host.nav-links {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 35px;
+  gap: 35px;
+  color: #4d4d4d;
+  height: 70px;
+}
+
+.nav-link.host:hover,
+.nav-link.active {
+  color: var(--black);
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.host-vans-page {
+  padding: 0 25px;
+}
+
+.host-vans-heading {
+  font-weight: 700;
+  font-size: 32px;
+  margin-top: 5px;
+}
+
+.host-van {
+  background-color: #ffffff;
+  display: flex;
+  gap: 20px;
+  padding: 18px 24px;
+  margin: 15px 0;
+  border-radius: 5px;
+}
+
+.host-van > img {
+  width: 120px;
+}
+
+.host-van-name {
+  font-weight: 600;
+  font-size: 21px;
+  margin-bottom: -5px;
+}
+
+.host-van-detail-page {
+  padding: 25px;
+}
+
+.host-van-layout {
+  background-color: #fff;
+  padding: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-template-rows: auto;
+}
+
+.nav-links.host-van-nav {
+  grid-area: 2 / 1 / auto / 3;
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-start;
+  gap: 50px;
+}
+
+.host-van-detail-basics {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.host-van-detail-basics > h2 {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 27px;
+}
+
+.host-van-layout > img {
+  width: 320px;
+  border-radius: 5px;
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.host-van-all-info {
+  grid-area: 3 / 1 / 4 / 3;
+  padding: auto;
+}
+
+.host-van-photos > img {
+width: 150px;
+}
+
 @media (min-width: 1000px) {
   .van-details {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+  }
+  .host-vans {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .host-van {
+    display: flex;
+    flex-direction: column;
+    padding: 18px;
+    align-items: center;
+    width: 250px;
+  }
+  .host-van > img {
+    width: 200px;
+  }
+
+  .host-van-name {
+    font-weight: 600;
+    font-size: 22px;
+    margin: 5px 0;
+  }
+
+  .host-van-layout {
+    width: 50%;
   }
 }

@@ -8,7 +8,8 @@ export default function VanDetail() {
   useEffect(() => {
     fetch(`/api/vans/${params.id}`)
       .then((res) => res.json())
-      .then((data) => setVan(data.vans));
+      .then((data) => setVan(data.vans))
+      .catch(err => console.log(console.log(err)))
   }, []);
 
   return (
@@ -18,17 +19,16 @@ export default function VanDetail() {
       ) : (
         <>
           <div className="back-to-vans">
-            <Link to="/vans">
+            <Link to=".." relative="path">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-arrow-left"
+                className="bi bi-arrow-left"
                 viewBox="0 0 16 16"
               >
                 <path
-                  fill-rule="evenodd"
                   d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
                 />
               </svg>
@@ -37,7 +37,7 @@ export default function VanDetail() {
           </div>
 
           <div className="van-details">
-            <img src={van.imageUrl} />
+            <img src={van.imageUrl} alt="van-img"/>
             <div>
               <div className={`van-type details ${van.type}`}>
                 {`${van.type.substring(0, 1).toUpperCase()}${van.type.substring(

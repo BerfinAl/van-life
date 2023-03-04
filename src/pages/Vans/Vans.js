@@ -8,13 +8,13 @@ export default function Vans() {
     fetch("/api/vans")
       .then((res) => res.json())
       .then((data) => setVans(data.vans))
-      .then(() => console.log(vans));
+      .catch(err => console.log(console.log(err)))
   }, []);
 
-  const vanElemenets = vans.map((van) => {
+  const vanElemenets = vans && vans.map((van) => {
     return (
-      <Link to={`${van.id}`}>
-        <div className="van-el" key={van.id}>
+      <Link to={`${van.id}`} key={van.id}>
+        <div className="van-el" >
           <img src={van.imageUrl} alt="van" />
           <p>
             {van.name}
@@ -32,17 +32,17 @@ export default function Vans() {
     );
   });
 
-  const types = vans.reduce((arr, van) => {
+  const types = vans && vans.reduce((arr, van) => {
     if (!arr.includes(van.type)) {
       return [...arr, van.type];
     }
     return arr;
   }, []);
 
-  const filterTypes = types.map((type) => {
+  const filterTypes = types && types.map((type) => {
     return (
-      <div key={type} className="filter-type">
-        {type}
+      <div key={type} className={`filter ${type}`}>
+        {`${type.substring(0,1).toUpperCase()}${type.substring(1)}`}
       </div>
     );
   });
@@ -51,7 +51,7 @@ export default function Vans() {
     <div className="vans-page container">
       <h1> Explore our van options</h1>
       <div className="filters">
-        {filterTypes} <a> Clear filters</a>{" "}
+        {filterTypes} <a href="/home"> Clear filters</a>{" "}
       </div>
       <div className="vans">{vanElemenets}</div>
     </div>
