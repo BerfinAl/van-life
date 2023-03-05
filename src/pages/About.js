@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 export default function About() {
   return (
@@ -24,7 +24,9 @@ export default function About() {
             Your destination is waiting. <br />
             Your van is ready.
           </h3>
-          <Link className="link-button" to="/vans">Explore our vans</Link>
+          <Link className="about-button" to="/vans">
+            Explore our vans
+          </Link>
         </div>
       </div>
     </div>

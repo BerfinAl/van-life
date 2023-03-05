@@ -4,7 +4,7 @@ import Footer from "./Footer";
 
 export default function Layout() {
   return (
-    <div className="content-wrap">
+    <div className="app-content-wrap">
       <Nav />
       <Outlet />
       <Footer />

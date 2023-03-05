@@ -12,6 +12,7 @@ import VanDetail from "./pages/Vans/VanDetail";
 import Layout from "./components/Layout";
 import HostLayout from "./components/HostLayout";
 import HostVanLayout from "./components/HostVanLayout";
+import NotFound from "./components/NotFound";
 
 import Dashboard from "./pages/Host/Dashboard";
 import Income from "./pages/Host/Income";
@@ -46,6 +47,9 @@ function App() {
             </Route>
 
           </Route>
+
+          <Route path="*" element={<NotFound />} />
+
         </Route>
       </Routes>
     </div>

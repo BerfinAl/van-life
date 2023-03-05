@@ -17,39 +17,22 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+/* NAV  */
+
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
-  height: 111.62352752685547px;
-  background-color: #fff7ed;
+  height: 110px;
+  background-color: #fcf3e7;
 }
 
-button:hover {
-  cursor: pointer;
-  transform: translate(1px, 1px);
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-a:hover {
-  cursor: pointer;
-}
-
-.nav-link:hover {
-  text-decoration: underline;
-}
-
-.nav-header > a {
+.nav-header {
   color: #000000;
   font-style: normal;
   font-weight: 900;
   font-size: 30px;
-  line-height: 40px;
 }
 
 .nav-links {
@@ -59,7 +42,7 @@ a:hover {
   padding: 5px;
 }
 
-.nav-links > a {
+.nav-link {
   font-size: 16px;
   font-weight: 600;
   line-height: 23px;
@@ -67,6 +50,12 @@ a:hover {
   text-align: right;
   color: #4d4d4d;
 }
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+/* FOOTER */
 
 footer {
   height: 74.75px;
@@ -82,18 +71,36 @@ footer {
   margin-top: auto;
 }
 
-.content-wrap {
+/* APP GENERAL*/
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+button:hover {
+  cursor: pointer;
+  transform: translate(1px, 1px);
+}
+
+.app-content-wrap {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #fff7ed;
 }
 
 .container {
-  background-color: #fff7ed;
   flex: 1;
 }
 
-.home.container {
+/* HOME PAGE */
+
+.home {
   height: calc(100vh - (74.75px + 111.62352752685547px));
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
     url("https://i.ibb.co/8sT8HF7/image.png");
@@ -127,7 +134,7 @@ footer {
   margin: -10px 0 30px 0;
 }
 
-.home-detail-box > .link-button {
+.home-button {
   width: 100%;
   font-family: inherit;
   background: #ff8c38;
@@ -139,8 +146,12 @@ footer {
   padding: 1.25rem 1.375rem;
 }
 
+/* ABOUT PAGE */
+
 .about-img {
   width: 100%;
+  height: 400px;
+  object-fit: cover;
 }
 
 .about-details {
@@ -186,7 +197,7 @@ footer {
   margin-bottom: 60px;
 }
 
-.explore-vans-box > .link-button {
+.about-button {
   font-weight: 700;
   color: #fff;
   background: var(--black);
@@ -196,8 +207,17 @@ footer {
   font-size: 15.9462px;
 }
 
+/* VANS PAGE */
+
 .vans-page {
   padding: 15px 5px;
+}
+
+.vans-page > h1 {
+  text-align: left;
+  font-size: 32px;
+  color: var(--black);
+  font-weight: 700;
 }
 
 .vans {
@@ -207,12 +227,12 @@ footer {
   gap: 20px;
 }
 
-.van-el > img {
+.van > img {
   width: 230px;
   border-radius: 5px;
 }
 
-.van-el > p {
+.van > p {
   font-size: 20px;
   font-weight: 600;
   line-height: 32px;
@@ -245,21 +265,6 @@ footer {
   color: #ffead0;
 }
 
-.simple,
-.filter.simple:hover {
-  background-color: #e17654;
-}
-
-.rugged,
-.filter.rugged:hover {
-  background-color: #115e59;
-}
-
-.luxury,
-.filter.luxury:hover {
-  background-color: var(--black);
-}
-
 .filters {
   display: flex;
   justify-content: space-around;
@@ -267,14 +272,25 @@ footer {
   margin-bottom: 20px;
 }
 
-.vans-page > h1 {
-  text-align: left;
-  font-size: 32px;
-  color: var(--black);
-  font-weight: 700;
+.simple,
+.simple.selected,
+.filter.simple:hover {
+  background-color: #e17654;
 }
 
-.filters > a {
+.rugged,
+.rugged.selected,
+.filter.rugged:hover {
+  background-color: #115e59;
+}
+
+.luxury,
+.luxury.selected,
+.filter.luxury:hover {
+  background-color: var(--black);
+}
+
+.clear-filters {
   text-decoration: underline;
 }
 
@@ -293,19 +309,23 @@ footer {
   border-radius: 5px;
 }
 
-.filter:hover {
+.filter:hover,
+.selected {
   color: #ffead0;
   cursor: pointer;
 }
 
-.back-to-vans > a {
-  padding: 20px;
-  display: inline-flex;
-  align-items: center;
-  gap: 2px;
+/* VAN DETAIL PAGE */
+
+.back-button {
+  margin: 20px 10px;
   font-weight: 500;
-  text-decoration: underline;
   color: #201f1d;
+  font-size: 17px;
+}
+
+.back-button > a > span {
+  text-decoration: underline;
 }
 
 .van-details {
@@ -325,7 +345,7 @@ footer {
   margin-top: 30px;
 }
 
-.price {
+.van-details-price {
   font-family: Inter;
   font-size: 22px;
   font-weight: 700;
@@ -336,14 +356,14 @@ footer {
   margin-top: -10px;
 }
 
-.price > span {
+.van-details-price > span {
   font-weight: 400;
   font-size: 18px;
   line-height: 44px;
   color: var(--black);
 }
 
-.van-details > .details-page-name {
+.van-details-name {
   font-weight: 700;
   font-size: 32px;
 }
@@ -370,7 +390,9 @@ footer {
   border-radius: 5px;
 }
 
-.host.nav-links {
+/* HOST NAV */
+
+.nav-links.host {
   display: flex;
   justify-content: flex-start;
   padding-left: 35px;
@@ -386,14 +408,10 @@ footer {
   font-weight: bold;
 }
 
+/* HOST/VANS */
+
 .host-vans-page {
   padding: 0 25px;
-}
-
-.host-vans-heading {
-  font-weight: 700;
-  font-size: 32px;
-  margin-top: 5px;
 }
 
 .host-van {
@@ -406,7 +424,13 @@ footer {
 }
 
 .host-van > img {
-  width: 120px;
+  width: 140px;
+}
+
+.host-vans-heading {
+  font-weight: 700;
+  font-size: 32px;
+  margin-top: 5px;
 }
 
 .host-van-name {
@@ -415,11 +439,13 @@ footer {
   margin-bottom: -5px;
 }
 
+/* HOST/vANS/:ID */
+
 .host-van-detail-page {
   padding: 25px;
 }
 
-.host-van-layout {
+.host-van-details-box {
   background-color: #fff;
   padding: 25px;
   display: grid;
@@ -448,7 +474,7 @@ footer {
   line-height: 27px;
 }
 
-.host-van-layout > img {
+.host-van-details-box > img {
   width: 320px;
   border-radius: 5px;
   grid-area: 1 / 1 / 2 / 2;
@@ -460,14 +486,54 @@ footer {
 }
 
 .host-van-photos > img {
-width: 150px;
+  width: 150px;
+}
+
+/* NOT FOUND */
+
+.error-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 150px;
+}
+.error-page-heading {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--black);
+}
+.error-page-btn {
+  padding: 20px 150px;
+  background-color: var(--black);
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* LOADING */
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: 1000px) {
+  .about-img {
+    width: 100%;
+    height: calc(100vh - 110px);
+  }
   .van-details {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+  }
+  .rent-btn {
+    width: 30%;
   }
   .host-vans {
     display: flex;
@@ -493,5 +559,8 @@ width: 150px;
 
   .host-van-layout {
     width: 50%;
+  }
+  .error-page-btn {
+    width: 450px;
   }
 }
