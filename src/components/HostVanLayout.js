@@ -21,7 +21,7 @@ export default function HostVanLayout() {
 
   return (
 
-    <div className="host-van-detail-page">
+    <div className="host-van-details-page">
       <div className="back-button">
         <Link to=".." relative="path">
           &larr;
@@ -32,14 +32,14 @@ export default function HostVanLayout() {
       <div className="host-van-details-box">
         <img src={van.imageUrl} alt="van-img" />
 
-        <div className="host-van-detail-basics">
+        <div className="host-van-details-basics">
           <div className={`van-type details ${van.type}`}>
             {`${van.type.substring(0, 1).toUpperCase()}${van.type.substring(
               1
             )}`}
           </div>
           <h2> {van.name}</h2>
-          <p className="price">
+          <p className="van-details-price">
             ${van.price}
             <span>/day</span>
           </p>

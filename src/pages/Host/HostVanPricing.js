@@ -6,7 +6,7 @@ export default function HostVanPricing() {
   return !van ? (
     <h2> Loading... </h2>
   ) : (
-    <p className="price">
+    <p className="van-details-price">
       ${van.price}.00/<span>day</span>
     </p>
   );

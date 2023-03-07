@@ -346,11 +346,8 @@ button:hover {
 }
 
 .van-details-price {
-  font-family: Inter;
   font-size: 22px;
   font-weight: 700;
-  line-height: 44px;
-  letter-spacing: 0em;
   text-align: left;
   color: var(--black);
   margin-top: -10px;
@@ -441,7 +438,7 @@ button:hover {
 
 /* HOST/vANS/:ID */
 
-.host-van-detail-page {
+.host-van-details-page {
   padding: 25px;
 }
 
@@ -462,13 +459,13 @@ button:hover {
   gap: 50px;
 }
 
-.host-van-detail-basics {
+.host-van-details-basics {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.host-van-detail-basics > h2 {
+.host-van-details-basics > h2 {
   font-weight: 700;
   font-size: 30px;
   line-height: 27px;
@@ -532,14 +529,17 @@ button:hover {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
+
   .rent-btn {
     width: 30%;
   }
+
   .host-vans {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
   }
+
   .host-van {
     display: flex;
     flex-direction: column;
@@ -547,6 +547,7 @@ button:hover {
     align-items: center;
     width: 250px;
   }
+
   .host-van > img {
     width: 200px;
   }
@@ -557,7 +558,7 @@ button:hover {
     margin: 5px 0;
   }
 
-  .host-van-layout {
+  .host-van-details-box {
     width: 50%;
   }
   .error-page-btn {
