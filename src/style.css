@@ -4,6 +4,7 @@
 
 :root {
   --black: #161616;
+  --orange: #ff8c38;
 }
 
 body {
@@ -134,10 +135,11 @@ button:hover {
   margin: -10px 0 30px 0;
 }
 
-.home-button {
+.home-button,
+.login-button {
   width: 100%;
   font-family: inherit;
-  background: #ff8c38;
+  background: var(--orange);
   border-radius: 5px;
   font-size: 18px;
   font-weight: 600;
@@ -375,7 +377,7 @@ button:hover {
 
 .rent-btn {
   width: 100%;
-  background-color: #ff8c38;
+  background-color: var(--orange);
   color: #ffffff;
   border: none;
   font-family: inherit;
@@ -517,6 +519,76 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* LOGIN PAGE */
+
+.login-page.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-page-header {
+  font-weight: 700;
+  font-size: 37px;
+  line-height: 24px;
+  text-align: center;
+  color: var(--black);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 100px;
+}
+
+.login-form > input {
+  padding: 9px 13px;
+  width: 494px;
+  height: 42px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  font-size: 16px;
+  font-weight: 400;
+  border: 1px solid #d1d5db;
+  color: #4d4d4d;
+}
+
+.login-form > input[type="email"] {
+  border-radius: 6px 6px 0px 0px;
+  background-color: #ffffff;
+  border-bottom: none;
+}
+
+.login-form > input[type="password"] {
+  border-radius: 0px 0px 6px 6px;
+  background-color: #ffffff;
+}
+
+.login-button {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 18px;
+  border: none;
+  line-height: 20px;
+  margin-top: 22px;
+}
+
+.login-button:disabled {
+  background-color: #ff8c3897;
+}
+
+.login-page > p {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--black);
+}
+
+.create-account {
+  color: var(--orange);
+  font-weight: 700;
+  margin-left: 10px;
 }
 
 @media (min-width: 1000px) {

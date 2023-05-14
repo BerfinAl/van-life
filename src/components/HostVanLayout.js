@@ -1,26 +1,18 @@
-import { useEffect, useState } from "react";
+import { NavLink, Outlet, Link, useLoaderData } from "react-router-dom";
+import { getHostVans } from "../api";
 
-import { NavLink, Outlet, useParams, Link } from "react-router-dom";
-import Loading from "./Loading";
+import { requireAuth } from "../utils";
+
+export async function loader({ params, request }) {
+console.log(params)
+await requireAuth(request)
+  return getHostVans(params.id);
+}
 
 export default function HostVanLayout() {
-  const { id } = useParams();
-
-  const [van, setVan] = useState(null);
-
-  useEffect(() => {
-    fetch(`/api/host/vans/${id}`)
-      .then((res) => res.json())
-      .then((data) => setVan(data.vans))
-      .catch((err) => console.log(console.log(err)));
-  }, []);
-
-  if (!van) {
-    return <Loading />;
-  }
+  const van = useLoaderData();
 
   return (
-
     <div className="host-van-details-page">
       <div className="back-button">
         <Link to=".." relative="path">
@@ -46,7 +38,7 @@ export default function HostVanLayout() {
         </div>
 
         <nav className="nav-links host-van-nav">
-          <NavLink className="nav-link host" to={`/host/vans/${id}`} end>
+          <NavLink className="nav-link host" to={`/host/vans/${van.id}`} end>
             Details
           </NavLink>
           <NavLink className="nav-link host" to={`pricing`}>

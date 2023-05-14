@@ -1,32 +1,30 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+
+import { getHostVans } from "../../api";
+import { requireAuth } from "../../utils";
+
+export async function loader({request}) {
+  await requireAuth(request);
+  return getHostVans();
+}
 
 export default function HostVans() {
-  const [hostVans, setHostVans] = useState(null);
+  const hostVans = useLoaderData();
 
-  useEffect(() => {
-    fetch(`/api/host/vans`)
-      .then((res) => res.json())
-      .then(({ vans }) => setHostVans(vans))
-      .catch((err) => console.log(err));
-  }, []);
-
-
-  const hostVansElements =
-    hostVans &&
-    hostVans.map((hostVan) => {
-      return (
-        <Link to={hostVan.id} key={hostVan.id}>
-          <div className="host-van">
-            <img src={hostVan.imageUrl} alt="van-img" />
-            <div>
-              <h4 className="host-van-name">{hostVan.name}</h4>
-              <p>${hostVan.price}/day</p>
-            </div>
+  const hostVansElements = hostVans.map((hostVan) => {
+    return (
+      <Link to={hostVan.id} key={hostVan.id}>
+        <div className="host-van">
+          <img src={hostVan.imageUrl} alt="van-img" />
+          <div>
+            <h4 className="host-van-name">{hostVan.name}</h4>
+            <p>${hostVan.price}/day</p>
           </div>
-        </Link>
-      );
-    });
+        </div>
+      </Link>
+    );
+  });
 
   return (
     <div className="host-vans-page container">
