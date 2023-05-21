@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link, useLoaderData, useSearchParams } from "react-router-dom";
 
 import { getVans } from "../../api";
@@ -8,8 +7,6 @@ export function loader() {
 }
 
 export default function Vans() {
-  const [error, setError] = useState(null);
-
   const vans = useLoaderData();
 
   const [searchParams] = useSearchParams();
@@ -71,10 +68,6 @@ export default function Vans() {
       </Link>
     );
   });
-
-  if (error) {
-    return <h1>There was an error: {error.message}</h1>;
-  }
 
   return (
     <div className="vans-page container">

@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+import { SkeletonTheme } from "react-loading-skeleton";
+
 import {
   RouterProvider,
   createBrowserRouter,
@@ -10,7 +12,7 @@ import {
 
 import "./style.css";
 
-import "./server";
+// import "./server";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -61,13 +63,12 @@ const router = createBrowserRouter(
           element={<Dashboard />}
           loader={async ({ request }) => {
             await requireAuth(request);
-            
           }}
         />
         <Route
           path="income"
           element={<Income />}
-           loader={async ({ request }) => {
+          loader={async ({ request }) => {
             await requireAuth(request);
             return null;
           }}
@@ -128,4 +129,8 @@ function App() {
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+root.render(
+  <SkeletonTheme baseColor="#d9d9d9">
+    <App />
+  </SkeletonTheme>
+);

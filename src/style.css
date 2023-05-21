@@ -429,7 +429,7 @@ button:hover {
 .host-vans-heading {
   font-weight: 700;
   font-size: 32px;
-  margin-top: 5px;
+  margin-top: 15px;
 }
 
 .host-van-name {
@@ -454,7 +454,7 @@ button:hover {
 }
 
 .nav-links.host-van-nav {
-  grid-area: 2 / 1 / auto / 3;
+  /* grid-area: 2 / 1 / auto / 3; */
   background-color: #fff;
   display: flex;
   justify-content: flex-start;
@@ -631,9 +631,11 @@ button:hover {
   }
 
   .host-van-details-box {
-    width: 50%;
+    width: 60%;
   }
   .error-page-btn {
     width: 450px;
   }
 }
+
+
